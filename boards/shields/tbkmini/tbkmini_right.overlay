@@ -1,6 +1,6 @@
 #include "tbkmini.dtsi"
 
-&default_transform { // The matrix transform for this board is 5
+&matrix_transform0 { // The matrix transform for this board is 5
     col-offset = <6>;
 };
 
