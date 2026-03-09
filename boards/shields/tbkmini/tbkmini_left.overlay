@@ -3,7 +3,7 @@
 // if you're using the Amoeba PCBs, you may want to put the GPIO_PULL_DOWN in the
 // col-gpios instead
 
-&kscan0 {
+&default_kscan {
     row-gpios
         = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row0
         , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row1

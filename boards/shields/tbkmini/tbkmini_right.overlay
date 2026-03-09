@@ -1,12 +1,12 @@
 #include "tbkmini.dtsi"
 
-&matrix_transform0 { // The matrix transform for this board is 5
+&default_transform { // The matrix transform for this board is 5
     col-offset = <6>;
 };
 
 // when using amoeba, put GPIO_PULL_DOWN in cols instead
 
-&kscan0 {
+&default_kscan {
     row-gpios
         = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row0
         , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row1
