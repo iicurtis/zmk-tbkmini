@@ -18,3 +18,20 @@
 #     artifact-name: corne_left_with_studio
 #
 ---
+include:
+  - board: xiao_ble//zmk
+    shield: tbkmini_dongle prospector_adapter
+    artifact-name: tbkmini_dongle
+  - board: nice_nano
+    shield: tbkmini_left
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: tbkmini_left
+  - board: nice_nano
+    shield: tbkmini_right
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: tbkmini_right
+  - board: xiao_ble
+    shield: settings_reset
+  - board: nice_nano
+    shield: settings_reset
+    artifact-name: tbkmini_reset_nano
