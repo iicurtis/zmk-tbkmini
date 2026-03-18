@@ -12,6 +12,7 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+      revision: main
     - name: prospector-zmk-module                 # <--- and these
       remote: carrefinho                          # <---
       revision: feat/new-status-screens           # <---
