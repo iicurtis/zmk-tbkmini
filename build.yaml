@@ -32,6 +32,7 @@ include:
     artifact-name: tbkmini_right
   - board: xiao_ble//zmk
     shield: settings_reset
+    artifact-name: tbkmini_reset_xiao
   - board: nice_nano//zmk
     shield: settings_reset
     artifact-name: tbkmini_reset_nano
