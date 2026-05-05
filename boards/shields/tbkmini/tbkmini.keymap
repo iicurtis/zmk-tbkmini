@@ -163,9 +163,15 @@
             bindings = <&kp LBKT>;
             layers = <0>;
         };
-        combo_lbrc {
+        combo_lbkt_right {
             timeout-ms = <50>;
-            key-positions = <2 14>;
+            key-positions = <18 19>;
+            bindings = <&kp LBKT>;
+            layers = <0>;
+        };
+        combo_lbrc_right {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
             bindings = <&kp LBRC>;
             layers = <0>;
         };
