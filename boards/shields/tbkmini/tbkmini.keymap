@@ -11,6 +11,11 @@
 // Customize on your own on the config folder.
 
 
+#define KEYS_L 0 1 2 3  4  5 12 13 14 15 16 17 24 25 26 27 28 29
+#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35
+#define THUMBS 36 37 38 39 40 41
+
+
 #define BASE    0
 #define NAV     1
 #define SYM     2
@@ -26,64 +31,79 @@
 };
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            /* label = "HOMEROW_MODS"; */
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-        };
-        u_out_tog: u_out_tog {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&out OUT_TOG>, <&out OUT_USB>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        u_bt_sel_0: u_bt_sel_0 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0>, <&bt BT_SEL 0 &bt BT_CLR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        u_bt_sel_1: u_bt_sel_1 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1>, <&bt BT_SEL 1 &bt BT_CLR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        u_bt_sel_2: u_bt_sel_2 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 2>, <&bt BT_SEL 2 &bt BT_CLR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        u_bt_sel_3: u_bt_sel_3 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 3>, <&bt BT_SEL 3 &bt BT_CLR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        u_bt_sel_4: u_bt_sel_4 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 4>, <&bt BT_SEL 4 &bt BT_CLR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
+  behaviors {
+    hl: homerow_mod_left {
+      compatible = "zmk,behavior-hold-tap";
+      /* label = "HOMEROW_MODS"; */
+      #binding-cells = <2>;
+      tapping-term-ms = <280>;
+      quick-tap-ms = <150>;
+      flavor = "balanced";
+      bindings = <&kp>, <&kp>;
+      require-prior-idle-ms = <175>;
+      hold-trigger-key-positions = <KEYS_R THUMBS>;
+      hold-trigger-on-release;
+    };
+    hr: homerow_mod_right {
+      compatible = "zmk,behavior-hold-tap";
+      /* label = "HOMEROW_MODS"; */
+      #binding-cells = <2>;
+      tapping-term-ms = <280>;
+      quick-tap-ms = <150>;
+      flavor = "balanced";
+      bindings = <&kp>, <&kp>;
+      require-prior-idle-ms = <175>;
+      hold-trigger-key-positions = <KEYS_L THUMBS>;
+      hold-trigger-on-release;
+    };
+    u_out_tog: u_out_tog {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&out OUT_TOG>, <&out OUT_USB>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_bt_sel_0: u_bt_sel_0 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&bt BT_SEL 0>, <&bt BT_SEL 0 &bt BT_CLR>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_bt_sel_1: u_bt_sel_1 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&bt BT_SEL 1>, <&bt BT_SEL 1 &bt BT_CLR>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_bt_sel_2: u_bt_sel_2 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&bt BT_SEL 2>, <&bt BT_SEL 2 &bt BT_CLR>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_bt_sel_3: u_bt_sel_3 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&bt BT_SEL 3>, <&bt BT_SEL 3 &bt BT_CLR>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_bt_sel_4: u_bt_sel_4 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&bt BT_SEL 4>, <&bt BT_SEL 4 &bt BT_CLR>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    keymap {
-        compatible = "zmk,keymap";
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
 
         default_layer {
             display-name = "Base";
             bindings = <
     &kp GRAVE       &kp Q       &kp W       &kp E       &kp R           &kp T               &kp Y           &kp U           &kp I       &kp O           &kp P           &kp BSLH
-    &hm LCTRL ESC   &hm LGUI A  &hm LALT S  &hm LCTRL D &hm LSHFT F     &kp G               &kp H           &hm LSHFT J     &hm LCTRL K &hm LALT L      &hm LGUI SEMI   &kp SQT
-    &kp LSHIFT      &kp Z       &hm RALT X  &kp C       &kp V           &kp B               &kp N           &kp M           &kp COMMA   &hm RALT DOT    &kp FSLH        &kp RSHIFT
+    &hl LCTRL ESC   &hl LGUI A  &hl LALT S  &hl LCTRL D &hl LSHFT F     &kp G               &kp H           &hr LSHFT J     &hr LCTRL K &hr LALT L      &hr LGUI SEMI   &kp SQT
+    &kp LSHIFT      &kp Z       &hl RALT X  &kp C       &kp V           &kp B               &kp N           &kp M           &kp COMMA   &hr RALT DOT    &kp FSLH        &kp RSHIFT
                                             &lt MED ESC &lt NAV SPACE   &lt MSE TAB         &lt SYM RET     &lt NUM BSPC    &lt FUN DEL
             >;
         };
